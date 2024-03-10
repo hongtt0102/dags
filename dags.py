@@ -15,17 +15,17 @@ default_args = {
     'retries': 1
 }
 with DAG(
-   ‘my-second-dag’,
+   'my-second-dag',
    default_args=default_args,
-   description=‘simple dag’,
+   description=‘simple dag',
    schedule_interval=timedelta(days=1),
    start_date=datetime(2024, 03, 12),
    catchup=False,
-   tags=[‘example’]
+   tags=['example']
 ) as dag:
 
    t1 = SparkKubernetesOperator(
-       task_id=‘n-spark-pi’,
+       task_id='n-spark-pi',
        trigger_rule=“all_success”,
        depends_on_past=False,
        retries=3,
