@@ -6,15 +6,14 @@ from airflow.models import Variable
 from kubernetes.client import models as k8s
 from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 
-default_args={
-   ‘depends_on_past’: False,
-   ’email’: [‘abcd@gmail.com’],
-   ’email_on_failure’: False,
-   ’email_on_retry’: False,
-   ‘retries’: 1,
-   ‘retry_delay’: timedelta(minutes=5)
+default_args = {
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'start_date': datetime(2024, 3, 12),
+    'email_on_failure': False,
+    'email_on_retry': False,
+    'retries': 1
 }
-
 with DAG(
    ‘my-second-dag’,
    default_args=default_args,
