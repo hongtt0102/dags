@@ -17,7 +17,7 @@ default_args = {
 with DAG(
    'my-second-dag',
    default_args=default_args,
-   description=‘simple dag',
+   description='simple dag',
    schedule_interval=timedelta(days=1),
    start_date=datetime(2024, 03, 12),
    catchup=False,
@@ -26,14 +26,14 @@ with DAG(
 
    t1 = SparkKubernetesOperator(
        task_id='n-spark-pi',
-       trigger_rule=“all_success”,
+       trigger_rule="all_success",
        depends_on_past=False,
        retries=3,
-       application_file=“sparkjob.yaml”,
-       namespace=“spark-jobs”,
-       kubernetes_conn_id=“myk8s”,
-       api_group=“sparkoperator.k8s.io”,
-       api_version=“v1beta2”,
+       application_file="sparkjob.yaml",
+       namespace="spark-jobs",
+       kubernetes_conn_id="myk8s",
+       api_group="sparkoperator.k8s.io",
+       api_version="v1beta2",
        do_xcom_push=True,
        dag=dag
    )
