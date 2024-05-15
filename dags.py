@@ -20,7 +20,7 @@ with DAG(
    default_args=default_args,
    description='simple dag',
    schedule_interval=timedelta(days=1),
-   start_date=datetime(2024, 3, 12),
+   start_date=datetime(2024, 5, 16),
    catchup=False,
    tags=['example11']
 ) as dag:
@@ -32,6 +32,7 @@ with DAG(
        retries=1,
        application_file="readpa.yaml",
        kubernetes_conn_id="myk8s",
+       namespace="spark-jobs",
        do_xcom_push=True,
        dag=dag
    )
