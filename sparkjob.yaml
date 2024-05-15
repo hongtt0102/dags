@@ -33,9 +33,9 @@ spec:
       END_POINT: "rook-ceph-rgw-pbh-store.rook-ceph.svc:80"
       WRITE_PATH: "s3a://pbh2-bucket/join.parquet"
   executor:
-    instances: 4
-    coreRequest: "1500m"
-    coreLimit: "2000m"
+    instances: 1
+    coreRequest: "1000m"
+    coreLimit: "1000m"
     memory: "4096m"
     labels:
       version: 3.0.0
