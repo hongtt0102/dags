@@ -26,10 +26,10 @@ with DAG(
 ) as dag:
    start = EmptyOperator(task_id="start")
    t1 = SparkKubernetesOperator(
-       task_id='n-spark-pi',
+       task_id='n-spark',
        trigger_rule="all_success",
        depends_on_past=False,
-       retries=3,
+       retries=1,
        application_file="readpa.yaml",
        kubernetes_conn_id="myk8s",
        do_xcom_push=True,
