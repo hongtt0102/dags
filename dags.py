@@ -6,7 +6,7 @@ from airflow.models import Variable
 from kubernetes.client import models as k8s
 from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 from airflow.operators.empty import EmptyOperator
-
+from airflow.operators.bash_operator import BashOperator
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
@@ -25,6 +25,11 @@ with DAG(
    tags=['example']
 ) as dag:
    start = EmptyOperator(task_id="start")
+   print_user_task = BashOperator(
+        task_id='print_user_task',
+        bash_command='echo "Người dùng hiện tại: $(whoami)"',
+        dag=dag
+    )
    t1 = SparkKubernetesOperator(
        task_id='n-spark-pi',
        trigger_rule="all_success",
@@ -36,5 +41,5 @@ with DAG(
        do_xcom_push=True,
        dag=dag
    )
-   start >> t1
+   start >> print_user_task >> t1
     
