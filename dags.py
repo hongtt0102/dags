@@ -5,6 +5,7 @@ from airflow.providers.cncf.kubernetes.sensors.spark_kubernetes import SparkKube
 from airflow.models import Variable
 from kubernetes.client import models as k8s
 from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
+from airflow.operators.empty import EmptyOperator
 
 default_args = {
     'owner': 'airflow',
@@ -23,7 +24,7 @@ with DAG(
    catchup=False,
    tags=['example']
 ) as dag:
-
+   start = EmptyOperator(task_id="start")
    t1 = SparkKubernetesOperator(
        task_id='n-spark-pi',
        trigger_rule="all_success",
@@ -35,3 +36,5 @@ with DAG(
        do_xcom_push=True,
        dag=dag
    )
+   start >> t1
+    
