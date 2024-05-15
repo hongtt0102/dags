@@ -29,8 +29,8 @@ with DAG(
        task_id='n-spark',
        trigger_rule="all_success",
        depends_on_past=False,
-       retries=1,
-       application_file="readpa.yaml",
+       retries=3,
+       application_file="sparkjob.yaml",
        kubernetes_conn_id="myk8s",
        do_xcom_push=True,
        dag=dag
