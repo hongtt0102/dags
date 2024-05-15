@@ -31,7 +31,6 @@ with DAG(
        depends_on_past=False,
        retries=3,
        application_file="readpa.yaml",
-       namespace="spark-jobs",
        kubernetes_conn_id="myk8s",
        do_xcom_push=True,
        dag=dag
