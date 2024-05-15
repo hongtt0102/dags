@@ -22,7 +22,7 @@ with DAG(
    schedule_interval=timedelta(days=1),
    start_date=datetime(2024, 3, 12),
    catchup=False,
-   tags=['example']
+   tags=['example11']
 ) as dag:
    start = EmptyOperator(task_id="start")
    t1 = SparkKubernetesOperator(
