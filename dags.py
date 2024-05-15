@@ -16,7 +16,7 @@ default_args = {
     'retries': 1
 }
 with DAG(
-   'my-second-dag',
+   'my-dag',
    default_args=default_args,
    description='simple dag',
    schedule_interval=timedelta(days=1),
