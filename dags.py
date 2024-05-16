@@ -22,7 +22,8 @@ with DAG(
    schedule_interval=timedelta(days=1),
    start_date=datetime(2024, 5, 16),
    catchup=False,
-   tags=['example13']
+   tags=['example13'],
+   template_searchpath='/opt/airflow/dags/repo/'
 ) as dag:
    start = EmptyOperator(task_id="start")
    t1 = SparkKubernetesOperator(
