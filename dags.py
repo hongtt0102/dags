@@ -30,6 +30,7 @@ with DAG(
        trigger_rule="all_success",
        depends_on_past=False,
        retries=3,
+       namespace='spark-jobs',
        application_file="sparkjob.yaml",
        kubernetes_conn_id="myk8s",
        do_xcom_push=True,
