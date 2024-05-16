@@ -31,7 +31,7 @@ with DAG(
        depends_on_past=False,
        retries=3,
        namespace='spark-jobs',
-       application_file="sparkjob.yaml",
+       application_file="/opt/airflow/dags/repo/sparkjob.yaml",
        kubernetes_conn_id="myk8s",
        do_xcom_push=True,
        dag=dag
