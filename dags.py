@@ -29,7 +29,7 @@ with DAG(
    t1 = SparkKubernetesOperator(
        task_id='n-spark',
        trigger_rule="all_success",
-       depends_on_past=start,
+       depends_on_past=False,
        retries=0,
        namespace='spark-jobs',
        application_file="sparkjob.yaml",
