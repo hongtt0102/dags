@@ -41,6 +41,6 @@ spec:
       version: 3.0.0
   deps:
     jars:
-      - https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.375/aws-java-sdk-bundle-1.11.375.jar
-      - https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.2.0/hadoop-aws-3.2.0.jar
+      - https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-s3/1.11.563/aws-java-sdk-s3-1.11.563.jar
+      - https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.2.2/hadoop-aws-3.2.2.jar
       - https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar
