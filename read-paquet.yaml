@@ -7,9 +7,9 @@ spec:
   type: Python
   pythonVersion: "3"
   mode: cluster
-  image: bibilon89/sparkreadparquet:1.0
+  image: bibilon89/spark:3.5.0
   imagePullPolicy: Always
-  mainApplicationFile: local:///app/readparquet.py
+  mainApplicationFile: local:///opt/spark/work-dir/scripts/readparquet.py
   sparkVersion: "3.1.1"
   restartPolicy:
     type: Never
