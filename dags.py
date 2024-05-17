@@ -32,7 +32,7 @@ with DAG(
        depends_on_past=False,
        retries=0,
        namespace='spark-jobs',
-       application_file="readpa.yaml",
+       application_file="read-paquet.yaml",
        kubernetes_conn_id="myk8s",
        do_xcom_push=True,
        dag=dag
