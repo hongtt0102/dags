@@ -10,11 +10,11 @@ spec:
   image: bibilon89/spark:3.5.0
   imagePullPolicy: Always
   mainApplicationFile: local:///opt/spark/work-dir/scripts/readparquet.py
-  sparkVersion: "3.1.1"
+  sparkVersion: "3.5.0"
   restartPolicy:
     type: Never
   driver:
-    cores: 2
+    cores: 1
     coreLimit: "2000m"
     memory: "4096m"
     labels:
@@ -33,7 +33,7 @@ spec:
       END_POINT: "rook-ceph-rgw-pbh-store.rook-ceph.svc:80"
       WRITE_PATH: "s3a://pbh2-bucket/join3.parquet"
   executor:
-    instances: 3
+    instances: 2
     coreRequest: "1500m"
     coreLimit: "2000m"
     memory: "4096m"
@@ -42,5 +42,5 @@ spec:
   deps:
     jars:
       - https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-s3/1.11.563/aws-java-sdk-s3-1.11.563.jar
-      - https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.2.2/hadoop-aws-3.2.2.jar
+      - https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.2.2/hadoop-aws-3.3.4.jar
       - https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar
